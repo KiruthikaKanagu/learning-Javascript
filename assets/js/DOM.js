@@ -49,19 +49,9 @@ const inputEl = document.querySelector("input")
 const btnEl = document.querySelector("button")
 const display = document.querySelector("h5");
 const headEl = document.querySelector("h3")
+
 btnEl.addEventListener("click", () => {
-    const inputName = inputEl.value.trim();
-    if (inputName.length > 3 && inputName.length < 20) {
-        alert("ok");
-        // return;
-
-        display.innerText = `helo ${wordToCapitalize(inputName)}`
-        display.style.display = "block"
-    }
-    else {
-        alert("I can't get name")
-    }
-
+    showCard();
 })
 
 
@@ -84,6 +74,27 @@ bgChange.addEventListener("click", () => {
     outer.style.backgroundColor = `#${((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0")}`;
 })
 
+function showCard(){
+    const inputName = inputEl.value.trim();
+    if (inputName.length > 3 && inputName.length < 20) {
+       
+        display.innerText = `helo ${wordToCapitalize(inputName)}`
+        display.style.display = "block"
+    }
+    else {
+        alert("I can't get name")
+    }
+
+}
+document.addEventListener('DOMContentLoaded', () => {
+    display.style.display = "none";
+    document.addEventListener('keydown', (event) => {
+        if (event.key == "Enter") {
+            showCard();
+        }
+       
+    })
+})
 
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -102,12 +113,11 @@ bgChange.addEventListener("click", () => {
 
 
 // create dynamicaly one div container and put class and css
-document.addEventListener('DOMContentLoaded', () => {
-    var newElement = document.createElement("h3");
-    newElement.textContent = "hello Krithika";
-    newElement.className ="mx-auto max-w-xl bg-gray-50 m-10 p-5 text-green-500 text-semibold"
-    var containerEl = document.getElementById("container");
-    containerEl.appendChild(newElement)
-})
-
+// document.addEventListener('DOMContentLoaded', () => {
+//     var newElement = document.createElement("h3");
+//     newElement.textContent = "hello Krithika";
+//     newElement.className ="mx-auto max-w-xl bg-gray-50 m-10 p-5 text-green-500 text-semibold"
+//     var containerEl = document.getElementById("container");
+//     containerEl.appendChild(newElement)
+// })
 
